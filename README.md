@@ -3,4 +3,4 @@ A classic Tic-Tac-Toe game as web application, created by using HTML, CSS, and j
 
 ## Features
 
-The game has 3 board size options, starts from 3x3, 6x6, and 9x9.
+User can change the board's size, starts from 3x3, 6x6, 9x9, etc.
