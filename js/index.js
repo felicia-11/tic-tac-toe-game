@@ -74,7 +74,7 @@ $(document).ready(function () {
     };
 
     $('#game').on("click", "li", function () {
-        const currSize = parseInt($("#board_size").val(), 10);
+        const currSize = parseInt($("#board_size").text(), 10);
 
         if (!$(this).hasClass('disabled') && !hasWin) {
             if (count % 2 == 0) {
@@ -115,12 +115,33 @@ $(document).ready(function () {
         }
     });
 
+    $("#decrease-btn").click(function () {
+        const currSize = parseInt($("#board_size").text(), 10);
+        const newSize = currSize - 3;
+        $("#board_size").text(newSize);
+
+        if (newSize <= 3) {
+            $("#decrease-btn").prop('disabled', true);
+        }
+    });
+
+    $("#increase-btn").click(function () {
+        const currSize = parseInt($("#board_size").text(), 10);
+        const newSize = currSize + 3;
+        $("#board_size").text(newSize);
+
+        if ($("#decrease-btn").prop('disabled')) {
+            $("#decrease-btn").prop('disabled', false);
+        }
+    });
+
     $("#btnApply").click(function () {
-        const newSize = parseInt($("#board_size").val(), 10);
+        const newSize = parseInt($("#board_size").text(), 10);
         const isReset = confirm("Current game will be restarted. Change board size into " + newSize + " x " + newSize + "?");
 
         if (isReset) {
             $("#game").empty();
+            hasWin = false;
             count = 0;
 
             for(let i = 0; i < newSize / 3; i++) {
@@ -133,7 +154,7 @@ $(document).ready(function () {
 
                 for(let j = 0; j < newSize / 3; j++) {
                     const currBoard = "#game #row_" + i;
-                    const boardIdx = (i * 3) + j;
+                    const boardIdx = (newSize * (i * 3)) + j;
                     $(currBoard).append("<ul id='board_" + boardIdx + "'></ul>");
 
                     for(let k = 0; k < 9; k++) {
@@ -148,7 +169,7 @@ $(document).ready(function () {
     });
 
     $("#reset").click(function () {
-        const currSize = parseInt($("#board_size").val(), 10);
+        const currSize = parseInt($("#board_size").text(), 10);
         if (count == (currSize * currSize) || hasWin) {
             resetGame();
         } else {

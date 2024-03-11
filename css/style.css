@@ -1,3 +1,8 @@
+#tic-tac-toe {
+    width: fit-content;
+    min-width: 100%;
+}
+
 #tic-tac-toe .disabled {
     text-transform: uppercase;
     font-size: 30px;
@@ -63,6 +68,37 @@
 #tic-tac-toe .board_row {
     display: flex;
     margin: 20px 0;
+}
+
+#tic-tac-toe #level-settings {
+    display: flex;
+    margin: 0 0 8px 20px;
+}
+
+#board_size {
+    width: 30px;
+    height: 23px;
+    padding: 0 3px;
+    margin: 0;
+    line-height: 25px;
+    text-align: center;
+    border: 1px solid lightgrey;
+    border-radius: 0;
+}
+
+#increase-btn {
+    border-radius: 0 4px 4px 0;
+}
+#decrease-btn {
+    border-radius: 4px 0 0 4px;
+}
+
+.counter_btn {
+    width: 25px;
+    height: 25px;
+    padding: 0;
+    border: 1px solid lightgrey;
+    border-radius: 0;
 }
 
 .new_span {

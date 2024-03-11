@@ -9,8 +9,8 @@
 </head>
 
 <body>
-    <div id="tic-tac-toe">
-        <div class="row container">
+    <main id="tic-tac-toe">
+        <section class="row container">
             <h1 class="span3">Tic Tac Toe</h1>
             <div class="span3">
                 <div class="input-prepend input-append">
@@ -25,25 +25,30 @@
                 </div>
             </div>
 
-            <div class="new_span" style="display: flex; margin-left: 20px;">
+            <div id="level-settings" class="new_span">
                 <div style="display: flex; justify-content: space-between; align-items: baseline; width: 100%;">
                     <div>Board Size</div>
-                    <select name="board_size" id="board_size" style="width: 80px;">
+                    <!-- <select name="board_size" id="board_size" style="width: 80px;">
                         <option value="3">3x3</option>
                         <option value="6">6x6</option>
                         <option value="9">9x9</option>
-                    </select>
+                    </select> -->
+                    <div style="display: flex;">
+                        <button id="decrease-btn" class="counter_btn" disabled>-</button>
+                        <p id="board_size">3</p>
+                        <button id="increase-btn" class="counter_btn">+</button>
+                    </div>
                     <button id="btnApply">Apply</button>
                 </div>
             </div>
     
             <a href="#" id="reset" class="btn-success btn span3">Restart</a>
-        </div>
+        </section>
 
-        <div class="container board">
+        <section class="container board">
             <div id="game"></div>
-        </div>
-    </div>
+        </section>
+    </main>
 
 
     <script src='https://code.jquery.com/jquery-1.7.2.min.js'></script>
